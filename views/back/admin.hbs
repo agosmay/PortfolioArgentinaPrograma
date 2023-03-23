@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    {{>head}}
+  </head>
+ <body id="backend">
+	{{> nav}}
+    <h1>Panel de control</h1>
+    <div class="container mb-4">
+       {{#if mensaje}}
+            <p class="h2 alert alert-success text-center">{{mensaje}}</p>
+       {{/if}}
+        <div class="table-responsive mt-4">
+
+            <table class="table caption-top">
+                <caption>Lista de secciones</caption>
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Acerca de mi</th>
+                        <th scope="col" style="max-width: 30%">Experiencia Laboral</th>
+                        <th scope="col" style="max-width: 10%">Educacion</th>
+                        <th scope="col" style="max-width: 5%">Skills</th>
+                        <th scope="col" style="max-width: 2%">Proyectos Realizados</th>
+                        <th scope="col" style="max-width: 5%">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="admin">
+                    {{#if informacion}}
+                    {{#each informacion}}
+                    <tr>
+                        <td>{{titulo}}</td>
+                        <td><div>{{sobremi}}</div>
+                        </td>
+                        <td class="experiencia">
+                            <div>{{experiencia}}</div>
+                        </td>
+                        <td class="educacion">
+                            {{educacion}}
+                            
+                        </td>
+                        <td>{{skills}} </td>
+                        <td>{{proyectos}}</td>
+                        <td>
+                            <a href="/editar-info/{{id}}">Editar </a><br>
+                            <a href="/borrar-info/{{id}}">Borrar</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+
+                    <tr>
+                        <td colspan="8"><p>No hay info cargada, por favor cargá info.</p></td>
+                    </tr>
+                    {{/if}}
+
+                </tbody>
+
+            </table>
+            <a href="/agregar-info" class="btn btn-info">Agregar info</a>
+
+        </div>
+
+    </div>
+
+   {{>footer }}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
