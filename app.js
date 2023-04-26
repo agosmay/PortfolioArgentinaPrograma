@@ -7,10 +7,19 @@ const app = express();
 
 
 let opciones = {
-	 host: 'localhost',
+	 /*host: 'localhost',
 	 user: 'root',
 	 password: '',
-	 database: 'proyecto'
+	 database: 'proyecto'*/
+	 host: 'bdcbxza52weqjma0wkfp-mysql.services.clever-cloud.com',//'localhost', antes de clever
+	 user: 'ulsewx9x9jukrnd1', //'root', antes de clever 
+     password: 'plnBOz1AMLwCtEI3Wlkc', //'' antes de clever
+     database: 'bdcbxza52weqjma0wkfp' // antes de clever 'proyecto'
+	 
+	
+	 
+	 
+	 
 }
 
 app.use(session({
