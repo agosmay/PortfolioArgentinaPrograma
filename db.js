@@ -1,9 +1,14 @@
-const mysql = require('mysql')
+const mysql = require('mysql');
+const path = require('path')
+const dotenv = require('dotenv')
+dotenv.config({path:'./.env'})// si o si incluir el path para q encuentre las variables de entorno
+
+
 const connection = mysql.createConnection({
-  host: 'bdcbxza52weqjma0wkfp-mysql.services.clever-cloud.com',//'localhost', antes de clever
-  user: 'ulsewx9x9jukrnd1', //'root', antes de clever 
-  password: 'plnBOz1AMLwCtEI3Wlkc', //'' antes de clever
-  database: 'bdcbxza52weqjma0wkfp' // antes de clever 'proyecto'
+  host     : process.env.DB_HOST ,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASS,
+  database : process.env.DB_DATABASE
 })
 
 connection.connect((err)=> {
@@ -14,3 +19,10 @@ connection.connect((err)=> {
 
 
 module.exports = connection 
+
+
+  
+  
+  
+  
+  
